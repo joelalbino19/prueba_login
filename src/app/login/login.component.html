@@ -1,0 +1,28 @@
+<div>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form [formGroup]="formLogin" (submit)="fnLogin()">
+        <div>
+          <label for="">Identificación</label>
+          <ion-input formControlName="identification" type="number"placeholder="Indentificación"></ion-input>
+        </div>
+        <div>
+          <label for="">Correo</label>
+          <ion-input formControlName="email" type="email"placeholder="Correo"></ion-input>
+        </div>
+        <div>
+          <label for="">Contraseña</label>
+          <ion-input formControlName="password" type="password"placeholder="Contraseña"></ion-input>
+        </div>
+    
+        <ion-button [disabled]="formLogin.invalid" type="submit">Login</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>
