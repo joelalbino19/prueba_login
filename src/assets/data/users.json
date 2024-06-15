@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Joel",
+    "lastName": "Albino",
+    "document": 1001917552
+  },
+  {
+    "name": "Juan",
+    "lastName": "Perez",
+    "document": 1001917553
+  },
+  {
+    "name": "Maria",
+    "lastName": "Cortez",
+    "document": 1001917554
+  },
+  {
+    "name": "Marco",
+    "lastName": "Muñoz",
+    "document": 1001917555
+  }
+]

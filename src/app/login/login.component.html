@@ -1,28 +1,38 @@
-<div>
 
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      <form [formGroup]="formLogin" (submit)="fnLogin()">
-        <div>
-          <label for="">Identificación</label>
-          <ion-input formControlName="identification" type="number"placeholder="Indentificación"></ion-input>
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <!-- <span class="" *ngIf="formLogin.invalid">{{'Todos los campos son obligatorios'}}</span> -->
+                    <form [formGroup]="formLogin" (submit)="fnLogin()">
+                      <div class="form-group mt-2">
+                        <select class="form-style" formControlName="typeDocument">
+                          <option value="">{{'Seleccionar tipo de documento'}}</option>
+                          <option *ngFor="let item of typeDocumentList" [value]="item.value">{{item.text}}</option>
+                        </select>
+                      </div>
+                      <div class="form-group mt-2">
+                        <input type="text" (input)="fnFormatNumber($event)"  class="form-style" placeholder="Numero de documento" formControlName="document">
+                      </div>
+                      <button class="btn mt-4" [disabled]="formLogin.invalid">Buscar</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <label for="">Correo</label>
-          <ion-input formControlName="email" type="email"placeholder="Correo"></ion-input>
-        </div>
-        <div>
-          <label for="">Contraseña</label>
-          <ion-input formControlName="password" type="password"placeholder="Contraseña"></ion-input>
-        </div>
-    
-        <ion-button [disabled]="formLogin.invalid" type="submit">Login</ion-button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+      </div>
+    </div>
+  </div>
 </div>

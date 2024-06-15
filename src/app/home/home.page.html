@@ -1,21 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Bienvenido
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+<div class="section">
+  <div class="container">
+    <div class="row full-height justify-content-center">
+      <div class="col-12 text-center align-self-center py-5">
+        <div class="section pb-5 pt-5 pt-sm-2 text-center">
+          <div class="card-3d-wrap mx-auto">
+            <div class="card-3d-wrapper">
 
-  <div id="container">
-    <strong>{{title || 'Ready to create an app?'}}</strong>
-    <ion-button id="button" [routerLink]="['/login']" >Regresar</ion-button>
-
+              <div class="card-front">
+                <div class="center-wrap">
+                  <div class="section text-center">
+                    <!-- <span class="" *ngIf="formLogin.invalid">{{'Todos los campos son obligatorios'}}</span> -->
+                    <div>
+                      <div class="form-group mt-2">
+                        <label for="" class="label-name" >Primer Apellido</label>
+                        <input type="text" class="form-style" disabled placeholder="Nombre" [value]="user.lastName">
+                      </div>
+                      <div class="form-group mt-2">
+                        <label for="" class="label-name" >Primer Nombre</label>
+                        <input type="text" class="form-style" disabled placeholder="Nombre" [value]="user.name">
+                      </div>
+                      <div class="form-group mt-2">
+                        <label for="" class="label-name" >N° Documento</label>
+                        <input type="text" class="form-style" disabled placeholder="Nombre" [value]="user.document">
+                      </div>
+                      <button class="btn mt-4" (click)="fnBack()" >Regresar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</ion-content>
+</div>
