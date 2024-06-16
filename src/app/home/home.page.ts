@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
   user: any = {};
+  users: any = [];
+  view:string | null = "";
+
   constructor(
     private router: Router,
   ) {
@@ -17,6 +20,8 @@ export class HomePage {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.fnGetInfoUser();
+    this.fnGetInfoUsers();
+    this.view = localStorage.getItem('view');
   }
 
 
@@ -24,6 +29,12 @@ export class HomePage {
     let userLocalStorage = localStorage.getItem('user');
     if (userLocalStorage) {
       this.user = JSON.parse(userLocalStorage)
+    }
+  }
+  fnGetInfoUsers() {
+    let userLocalStorage = localStorage.getItem('users');
+    if (userLocalStorage) {
+      this.users = JSON.parse(userLocalStorage)
     }
   }
 

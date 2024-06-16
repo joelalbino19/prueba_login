@@ -1,4 +1,3 @@
-
 <div id="stars"></div>
 <div id="stars2"></div>
 <div id="stars3"></div>
@@ -14,7 +13,8 @@
                 <div class="center-wrap">
                   <div class="section text-center">
                     <!-- <span class="" *ngIf="formLogin.invalid">{{'Todos los campos son obligatorios'}}</span> -->
-                    <form [formGroup]="formLogin" (submit)="fnLogin()">
+                    <button class="btn btn-secondary mb-4" (click)="fnValidFilter()">{{ validFilter == false ? "Consultar en la red":"Consultar de manera local"}}</button>
+                    <form [formGroup]="formLogin" (submit)="fnFilterType()">
                       <div class="form-group mt-2">
                         <select class="form-style" formControlName="typeDocument">
                           <option value="">{{'Seleccionar tipo de documento'}}</option>
@@ -22,10 +22,12 @@
                         </select>
                       </div>
                       <div class="form-group mt-2">
-                        <input type="text" (input)="fnFormatNumber($event)"  class="form-style" placeholder="Numero de documento" formControlName="document">
+                        <input type="text" (input)="fnFormatNumber($event)" class="form-style"
+                          placeholder="Numero de documento" formControlName="document">
                       </div>
-                      <button class="btn mt-4" [disabled]="formLogin.invalid">Buscar</button>
+                      <button class="btn btn-primary mt-4" [disabled]="formLogin.invalid" type="submit">{{ validFilter == false ? "Buscar":"Busqueda Local"}}</button>
                     </form>
+                      <button class="btn btn-primary mt-4" *ngIf="validFilter == false" (click)="fnGetUsers()">Ver todos los usuarios</button>
                   </div>
                 </div>
               </div>

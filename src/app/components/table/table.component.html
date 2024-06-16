@@ -1,0 +1,33 @@
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Document</th>
+      <th scope="col">TypeDocument</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">MiddleName</th>
+      <th scope="col">FirstSurname</th>
+      <th scope="col">SecondSurname</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Fila iterable usando *ngFor en Angular -->
+    <ng-container *ngFor="let registro of data; let i = index">
+      <tr>
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ registro.document }}</td>
+        <td>{{ registro.typeDocument }}</td>
+        <td>{{ registro.firstName }}</td>
+        <td>{{ registro.middleName }}</td>
+        <td>{{ registro.firstSurname }}</td>
+        <td>{{ registro.secondSurname }}</td>
+        <td>{{ registro.phone }}</td>
+        <td>{{ registro.address }}</td>
+        <td>{{ registro.city }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
