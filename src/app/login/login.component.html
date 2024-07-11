@@ -1,28 +1,29 @@
 <div class="content-component">
     <section>
-        <form action="">
+        <form [formGroup]="formUser">
             <div class="title-form">
                 <label for="">AGREGAR NUEVO CONTACTO</label>
             </div>
             <div class="input-form">
                 <div>
                     <label for="">Nombre</label>
-                    <input type="text" placeholder="Nombre Completo">
+                    <input type="text" placeholder="Nombre Completo" formControlName="nombre">
                 </div>
                 <div>
                     <label for="">Entidad</label>
-                    <input type="text" placeholder="Entidad">
+                    <input type="text" placeholder="Entidad" formControlName="entidad">
                 </div>
                 <div>
                     <label for="">E-mail</label>
-                    <input type="email" placeholder="Email">
+                    <input type="email" placeholder="Email" formControlName="email">
                 </div>
-                <ion-button type="submit">AGREGAR</ion-button>
+                <ion-button type="button" (click)="texButton == 'GUARDAR' ?  saveUser() : updateUser()">{{texButton}}</ion-button>
+                <ion-button type="button" (click)="cancel()" *ngIf="texButton == 'ACTUALIZAR'">CANCELAR</ion-button>
             </div>
         </form>
     </section>
     <section>
-        <form action="" (ngSubmit)="filterData()">
+        <form (ngSubmit)="filterData()">
             <div class="title-form-filter">
                 <label for="">Filtrar por:</label>
             </div>
@@ -32,7 +33,8 @@
                     <input type="text" placeholder="Nombre Completo" [formControl]="inputFilter">
                 </div>
                 <ion-button type="submit" [disabled]="inputFilter.value === ''">BUSCAR</ion-button>
-                <ion-button type="button" (click)="clearFilter()" [disabled]="inputFilter.value === ''">LIMPIAR</ion-button>
+                <ion-button type="button" (click)="clearFilter()"
+                    [disabled]="inputFilter.value === ''">LIMPIAR</ion-button>
             </div>
         </form>
     </section>
@@ -58,7 +60,7 @@
             </ion-card-header>
             <div class="icon-actions">
                 <ion-icon name="trash-outline" (click)="deleteUser(user)"></ion-icon>
-                <ion-icon name="create-outline" ></ion-icon>
+                <ion-icon name="create-outline" (click)="getUpdateUser(user)"></ion-icon>
             </div>
 
         </ion-card>
