@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../service/http.service';
+import { HttpService } from '../service/http.service';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -12,27 +12,31 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
-  typeDocumentList: any[] = [
-    { text: 'Cédula de Ciudadania', value: 'C.C' },
-    { text: 'Pasaporte', value: 'PS' },
-  ];
-  documetnNumber: number = 0;
-  validFilter: boolean = false;
+  typeDocumentList: any[];
+  documetnNumber: number;
+  validFilter: boolean;
+
   constructor(
-    private service: LoginService,
+    private service: HttpService,
     private router: Router,
     private fb: FormBuilder,
     private toastr: ToastrService
   ) {
     this.formLogin = this.fb.group({
       'typeDocument': ['', Validators.required],
-      'document': ['', [Validators.required, this.lengthValidator]],
-
-    })
+      'document': ['', [Validators.required, this.lengthValidator]]
+    });
+    this.typeDocumentList = [
+      { text: 'Cédula de Ciudadania', value: 'C.C' },
+      { text: 'Pasaporte', value: 'PS' },
+    ];
+    this.documetnNumber = 0;
+    this.validFilter = false;
   }
 
   ngOnInit() {
   }
+
   fnFilterType(){
     if (this.validFilter == true) {
       this.fnGetUserJSON();
@@ -139,6 +143,7 @@ export class LoginComponent implements OnInit {
     input.value = this.addThousandSeparators(value);
     this.formLogin.controls['document'].setValue(input.value);
   }
+
   addThousandSeparators(value: string): string {
     return value.replace(/\B(?=(\d{3})+(?!\d))/g, ','); // Añadir separadores de miles
   }

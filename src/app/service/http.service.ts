@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class HttpService {
 
   private jsonUrl = 'assets/data/users.json';  // Ruta a tu archivo JSON
 
