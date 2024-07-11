@@ -1,0 +1,71 @@
+<div class="content-component">
+    <section>
+        <form action="">
+            <div class="title-form">
+                <label for="">AGREGAR NUEVO CONTACTO</label>
+            </div>
+            <div class="input-form">
+                <div>
+                    <label for="">Nombre</label>
+                    <input type="text" placeholder="Nombre Completo">
+                </div>
+                <div>
+                    <label for="">Entidad</label>
+                    <input type="text" placeholder="Entidad">
+                </div>
+                <div>
+                    <label for="">E-mail</label>
+                    <input type="email" placeholder="Email">
+                </div>
+                <ion-button type="submit">AGREGAR</ion-button>
+            </div>
+        </form>
+    </section>
+    <section>
+        <form action="" (ngSubmit)="filterData()">
+            <div class="title-form-filter">
+                <label for="">Filtrar por:</label>
+            </div>
+            <div class="input-form-filter">
+                <div>
+                    <label for="">Nombre</label>
+                    <input type="text" placeholder="Nombre Completo" [formControl]="inputFilter">
+                </div>
+                <ion-button type="submit" [disabled]="inputFilter.value === ''">BUSCAR</ion-button>
+                <ion-button type="button" (click)="clearFilter()" [disabled]="inputFilter.value === ''">LIMPIAR</ion-button>
+            </div>
+        </form>
+    </section>
+
+    <section class="section-card" *ngIf="dataUser.length > 0">
+        <ion-card class="content-card" *ngFor="let user of dataUser">
+            <!-- <div >
+                <ion-icon name="logo-ionic" size="large" color="primary"></ion-icon>
+            </div> -->
+
+            <ion-card-header>
+                <div class="text-label">
+                    <ion-card-title>{{"Nombre:"}} {{user.nombre ? user.nombre : "Null"}}</ion-card-title>
+                    <ion-card-subtitle>
+                        <label for="">{{"Entidad:"}} </label>
+                        <label for="">{{user.entidad ? user.entidad : "Null"}}</label>
+                    </ion-card-subtitle>
+                    <ion-card-subtitle>
+                        <label for="">{{"Email:"}}</label>
+                        <label for="">{{user.email ? user.email : "Null"}}</label>
+                    </ion-card-subtitle>
+                </div>
+            </ion-card-header>
+            <div class="icon-actions">
+                <ion-icon name="trash-outline" (click)="deleteUser(user)"></ion-icon>
+                <ion-icon name="create-outline" ></ion-icon>
+            </div>
+
+        </ion-card>
+    </section>
+    <section class="section-card" *ngIf="dataUser.length === 0">
+        <ion-label>
+            <h1>NO HAY REGISTROS</h1>
+        </ion-label>
+    </section>
+</div>

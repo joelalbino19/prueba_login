@@ -1,8 +1,10 @@
-export interface Login {
+export interface Users {
+    rows: User[]
 
-    id: number,
-    userId: number,
-    completed: boolean,
-    title: string
-
+}
+export interface User {
+    id: number
+    nombre: string
+    entidad: string
+    email: string
 }

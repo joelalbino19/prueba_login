@@ -1,46 +1,28 @@
-[
-  {
-    "document": 1001917552,
-    "firstName": "Joel",
-    "middleName": "David",
-    "firstSurname": "Albino",
-    "secondSurname": "Saldarriaga",
-    "phone": "3017132554",
-    "address": "Transversal 2 a sur # 73 a 03",
-    "city": "barranquilla - soledad",
-    "typeDocument": "C.C"
-  },
-  {
-    "document": 1001917553,
-    "firstName": "Juan",
-    "middleName": "Camilo",
-    "firstSurname": "Perez",
-    "secondSurname": "Alvarez",
-    "phone": "3153004589",
-    "address": "Calle 55 # 38b",
-    "city": "Barranquilla",
-    "typeDocument": "PS"
-  },
-  {
-    "document": 1001917554,
-    "firstName": "Maria",
-    "middleName": "Camila",
-    "firstSurname": "Cortez",
-    "secondSurname": "Rodriguez",
-    "phone": "3153023654",
-    "address": "Calle 95 # 55c",
-    "city": "Barranquilla",
-    "typeDocument": "PS"
-  },
-  {
-    "document": 1001917555,
-    "firstName": "Marco",
-    "middleName": "Andres",
-    "firstSurname": "Muñoz",
-    "secondSurname": "Muñoz",
-    "phone": "3153078854",
-    "address": "Calle 100 # 88b",
-    "city": "Barranquilla",
-    "typeDocument": "C.C"
-  }
-]
+{
+  "rows": [
+    {
+      "id":1,
+      "nombre": "joel",
+      "entidad": "pastas comarrico",
+      "email": "joelalbino19@gmail.com"
+    },
+    {
+      "id":2,
+      "nombre": "jose",
+      "entidad": "cocacola",
+      "email": "jose@gmail.com"
+    },
+    {
+      "id":3,
+      "nombre": "carlos",
+      "entidad": "postobon",
+      "email": "carlos@gmail.com"
+    },
+    {
+      "id":4,
+      "nombre": "pedro",
+      "entidad": "ara",
+      "email": "pedro@gmail.com"
+    }
+  ]
+}
